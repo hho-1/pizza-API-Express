@@ -12,8 +12,13 @@ const HOST = process.env.HOST || '127.0.0.1'
 
 require('express-async-errors')
 
+//find-sort-pagination
+app.use(require('./src/middlewares/findSearchSortPage'))
 
-app.use(express.json()) //middleware
+//json
+app.use(express.json()) 
+
+//middleware
 
 app.all('/', (req, res) => {
     res.send({
@@ -22,10 +27,19 @@ app.all('/', (req, res) => {
     })
 })
 
-
+//dbConnection
 const {dbConnection} = require('./src/configs/dbConnection')
 dbConnection()
 
+//Routes
+
+app.use('/users', require('./src/routes/user'))
+app.use('/toppings', require('./src/routes/topping'))
+app.use('/pizzas', require('./src/routes/pizza'))
+app.use('/orders', require('./src/routes/order'))
+
+
+//errorhandler
 app.use(require('./src/middlewares/errorHandler'))
 
 
