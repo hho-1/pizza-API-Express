@@ -17,7 +17,7 @@ const OrderSchema = new mongoose.Schema({
     size: {
         type: String,
         required: true,
-        enum: ['Small', ' Medium', ' Large']
+        enum: ['Small', 'Medium', 'Large']
     },
     quantity: {
         type: Number,
