@@ -5,7 +5,7 @@ const Pizza = require('../models/pizza')
 
 module.exports={
     list: async (req, res) => {
-        const data = await res.getModelList(Pizza)
+        const data = await res.getModelList(Pizza, {}, 'toppings')
 
         res.status(200).send({
             error: false,

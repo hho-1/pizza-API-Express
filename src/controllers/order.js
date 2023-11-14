@@ -14,6 +14,9 @@ module.exports={
         })
     },
     create: async (req, res) => {
+
+        req.body.totalPrice = req.body.quantity * req.body.price
+
         const data = await Order.create(req.body)
 
         res.status(201).send({
