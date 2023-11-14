@@ -1,2 +1,2 @@
 ## Pizza API Project
-# pizza-API-Express
+![Project Snapshot](image.png)
